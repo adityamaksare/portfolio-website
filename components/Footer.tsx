@@ -1,12 +1,30 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaHeart, FaArrowUp } from 'react-icons/fa';
 import { HiMail, HiCode, HiLightningBolt } from 'react-icons/hi';
 import { personalInfo } from '@/data/portfolio';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY;
+      const clientHeight = window.innerHeight;
+
+      // Show button when user is near the bottom (within 500px of bottom)
+      const isNearBottom = scrollHeight - scrollTop - clientHeight < 500;
+      setShowScrollTop(isNearBottom);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const socialLinks = [
     {
@@ -164,20 +182,25 @@ export default function Footer() {
           </div>
         </motion.div>
 
-        {/* Scroll to Top Button */}
-        <motion.button
-          onClick={scrollToTop}
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.1, y: -3 }}
-          whileTap={{ scale: 0.9 }}
-          className="absolute -top-6 right-8 p-4 rounded-full bg-gradient-to-br from-primary-600 to-accent-600 text-white shadow-2xl shadow-primary-500/50 hover:shadow-primary-500/70 transition-all"
-          aria-label="Scroll to top"
-        >
-          <FaArrowUp className="w-5 h-5" />
-        </motion.button>
       </div>
+
+      {/* Scroll to Top Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            onClick={scrollToTop}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            whileHover={{ scale: 1.1, y: -3 }}
+            whileTap={{ scale: 0.9 }}
+            className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-gradient-to-br from-primary-600 to-accent-600 text-white shadow-2xl shadow-primary-500/50 hover:shadow-primary-500/70 transition-shadow"
+            aria-label="Scroll to top"
+          >
+            <FaArrowUp className="w-5 h-5" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </footer>
   );
 }

@@ -118,8 +118,7 @@ export default function Navigation() {
 
             {/* Hire Me Button */}
             <motion.a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
+              href="mailto:adityamaksare@outlook.com"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className="ml-4 inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white rounded-xl font-semibold shadow-lg shadow-primary-500/25 transition-all"
@@ -194,8 +193,7 @@ export default function Navigation() {
 
               {/* Mobile Hire Me Button */}
               <motion.a
-                href="#contact"
-                onClick={(e) => handleNavClick(e, '#contact')}
+                href="mailto:adityamaksare@outlook.com"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.05 }}
