@@ -188,7 +188,7 @@ export default function Contact() {
               <div className="flex justify-center">
                 <motion.a
                   href={personalInfo.resumeUrl}
-                  download
+                  download="Aditya-Maksare-Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05, y: -3 }}

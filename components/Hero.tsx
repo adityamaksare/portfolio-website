@@ -109,7 +109,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               href={personalInfo.resumeUrl}
-              download
+              download="Aditya-Maksare-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-xl font-semibold shadow-lg border-2 border-gray-200 dark:border-gray-700 transition-all"

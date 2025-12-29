@@ -5,7 +5,7 @@ export const personalInfo = {
   email: "adityamaksare@outlook.com",
   linkedin: "https://www.linkedin.com/in/adityamaksare/",
   github: "https://github.com/adityamaksare",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Aditya-Maksare-Resume.pdf",
   tagline: "Data Engineer specializing in real-time streaming pipelines with Apache Kafka and PySpark. Built production-grade fraud detection system achieving 95%+ accuracy with sub-500ms latency. Passionate about designing fault-tolerant data infrastructure that scales.",
   about: [
     "I'm a Data Engineer specializing in building real-time streaming pipelines and fault-tolerant data infrastructure. With expertise in Apache Kafka, PySpark Structured Streaming, and modern data engineering practices, I design scalable solutions that process thousands of events per second with zero data loss.",
